@@ -96,7 +96,6 @@
     <section class="py-20 max-w-4xl mx-auto px-6">
         <div class="bg-white p-4 shadow-2xl rounded-sm transform -rotate-1 hover:rotate-0 transition-transform duration-500">
             <div class="aspect-[3/4] bg-gray-100 flex items-center justify-center overflow-hidden relative">
-                <!-- Pointing to couple-photo.jpeg in the same directory -->
                 <img src="couple-photo.jpeg" alt="Simanta & Bidisha" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'text-center p-8 opacity-40\'><p class=\'font-sans italic\'>Photo not found. Please place \'couple-photo.jpeg\' in the same folder as this HTML file.</p></div>'">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>
@@ -139,9 +138,10 @@
                         </div>
                     </div>
                 </div>
-                <button class="mt-8 w-full py-3 maroon-bg text-white rounded font-sans tracking-widest hover:bg-[#a00000] transition-colors flex items-center justify-center gap-2 text-sm">
+                <!-- Add actual link for Wedding if known, or keep generic -->
+                <a href="https://www.google.com/maps/search/Bag+Bhavan+Nandanpur+Khanakul+Hooghly" target="_blank" class="mt-8 w-full py-3 maroon-bg text-white rounded font-sans tracking-widest hover:bg-[#a00000] transition-colors flex items-center justify-center gap-2 text-sm">
                     VIEW ON MAPS
-                </button>
+                </a>
             </div>
 
             <!-- Reception Card -->
@@ -163,16 +163,17 @@
                         <p>From 6:00 PM onwards</p>
                     </div>
                     <div class="flex gap-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6.001 0 3 3 0 016.001 0z" /></svg>
                         <div>
                             <p class="font-bold underline italic maroon-text">Guchhait Bhavan</p>
                             <p>Panchmora, Ghatal, West Medinipur</p>
                         </div>
                     </div>
                 </div>
-                <button class="mt-8 w-full py-3 maroon-bg text-white rounded font-sans tracking-widest hover:bg-[#a00000] transition-colors flex items-center justify-center gap-2 text-sm">
+                <!-- Updated Reception Map Link -->
+                <a href="https://www.google.com/maps/place/Guchhait+bhavan/@22.4614054,87.6111402,17z/data=!4m10!1m2!2m1!1sGuchhait+Bhavan++Panchmora,+Ghatal,+West+Medinipur!3m6!1s0x3a02ad004ef22e23:0xcac87b6b70cf6a4f!8m2!3d22.4614048!4d87.6149054!15sCjJHdWNoaGFpdCBCaGF2YW4gIFBhbmNobW9yYSwgR2hhdGFsLCBXZXN0IE1lZGluaXB1cpIBD2hvdXNpbmdfc29jaWV0eeABAA!16s%2Fg%2F11yfk4zc17?entry=ttu" target="_blank" class="mt-8 w-full py-3 maroon-bg text-white rounded font-sans tracking-widest hover:bg-[#a00000] transition-colors flex items-center justify-center gap-2 text-sm">
                     VIEW ON MAPS
-                </button>
+                </a>
             </div>
         </div>
     </section>
@@ -189,13 +190,19 @@
             <button class="w-full md:w-auto px-8 py-3 border-2 border-[#800000] maroon-text hover:bg-[#800000] hover:text-white transition-all rounded-full flex items-center justify-center gap-2">
                 RSVP NOW
             </button>
-            <button class="w-full md:w-auto px-8 py-3 bg-[#D4AF37] text-white hover:bg-[#c09d30] transition-all rounded-full flex items-center justify-center gap-2">
+            <!-- Share Button -->
+            <button id="shareBtn" class="w-full md:w-auto px-8 py-3 bg-[#D4AF37] text-white hover:bg-[#c09d30] transition-all rounded-full flex items-center justify-center gap-2">
                 SHARE INVITE
             </button>
         </div>
 
+        <!-- Custom Toast Message for Copy Success -->
+        <div id="toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-6 py-2 rounded-full text-sm font-sans opacity-0 transition-opacity duration-300 pointer-events-none">
+            Link copied to clipboard!
+        </div>
+
         <div class="mt-24 pb-12 opacity-50 text-xs tracking-[0.2em] font-sans">
-            <p></p>
+            <p>&copy; 2026 Simanta & Bidisha</p>
         </div>
     </section>
 
@@ -225,7 +232,46 @@
 
         setInterval(updateTimer, 1000);
         updateTimer();
+
+        // Share functionality
+        const shareData = {
+            title: 'Wedding Invitation | Simanta & Bidisha',
+            text: 'We are getting married! Join us on our special day.',
+            url: 'https://lazypydev.github.io/wedding_invitation/'
+        };
+
+        const shareBtn = document.getElementById('shareBtn');
+        const toast = document.getElementById('toast');
+
+        shareBtn.addEventListener('click', async () => {
+            // Use Web Share API if available (typically mobile)
+            if (navigator.share && navigator.canShare(shareData)) {
+                try {
+                    await navigator.share(shareData);
+                } catch (err) {
+                    console.error('Share failed', err);
+                }
+            } else {
+                // Fallback for Desktop (Copy to Clipboard)
+                try {
+                    // Create dummy input to copy
+                    const el = document.createElement('textarea');
+                    el.value = shareData.url;
+                    document.body.appendChild(el);
+                    el.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(el);
+
+                    // Show toast
+                    toast.classList.remove('opacity-0');
+                    setTimeout(() => {
+                        toast.classList.add('opacity-0');
+                    }, 2000);
+                } catch (err) {
+                    console.error('Clipboard copy failed', err);
+                }
+            }
+        });
     </script>
 </body>
 </html>
-
