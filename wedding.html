@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Simanta & Bidisha</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #FDFCF0;
+            color: #1a1a1a;
+            scroll-behavior: smooth;
+        }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 1.2s ease-out forwards;
+        }
+        
+        .gold-border {
+            border-color: #D4AF37;
+        }
+        .maroon-text {
+            color: #800000;
+        }
+        .maroon-bg {
+            background-color: #800000;
+        }
+    </style>
+</head>
+<body class="selection:bg-red-100">
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex flex-col items-center justify-center overflow-hidden text-center px-4 bg-white">
+        <!-- Elegant Border Background -->
+        <div class="absolute inset-4 border-2 gold-border opacity-30 rounded-lg pointer-events-none"></div>
+        <div class="absolute inset-8 border gold-border opacity-20 rounded-lg pointer-events-none"></div>
+
+        <div class="z-10 animate-fade-in-up">
+            <p class="maroon-text uppercase tracking-[0.3em] text-sm mb-4 font-sans font-semibold">
+                Save the Date
+            </p>
+            <div class="flex items-center justify-center gap-4 mb-2">
+                <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 maroon-text fill-current" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.51 4.05 3 5.5l7 7Z"/></svg>
+                <div class="h-[1px] w-12 bg-[#D4AF37]"></div>
+            </div>
+            <h1 class="text-6xl md:text-8xl maroon-text mb-2 leading-tight">
+                Simanta <br />
+                <span class="text-3xl font-sans font-light italic text-[#D4AF37]">&</span> <br />
+                Bidisha
+            </h1>
+            <p class="text-xl italic text-gray-600 mt-6 font-sans">
+                "Yadida Hridayam Mama, Tadidu Hridayam Tava"
+            </p>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 animate-bounce">
+            <div class="w-6 h-10 border-2 gold-border rounded-full flex justify-center pt-2">
+                <div class="w-1 h-2 maroon-bg rounded-full"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="py-20 maroon-bg text-[#D4AF37] text-center px-4">
+        <h2 class="text-3xl mb-12 uppercase tracking-widest font-sans">Counting Down to Forever</h2>
+        <div class="flex justify-center gap-4 md:gap-10">
+            <div class="flex flex-col items-center">
+                <span id="days" class="text-4xl md:text-6xl font-bold font-sans">0</span>
+                <span class="text-xs uppercase tracking-widest mt-2">Days</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span id="hours" class="text-4xl md:text-6xl font-bold font-sans">0</span>
+                <span class="text-xs uppercase tracking-widest mt-2">Hours</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span id="mins" class="text-4xl md:text-6xl font-bold font-sans">0</span>
+                <span class="text-xs uppercase tracking-widest mt-2">Mins</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span id="secs" class="text-4xl md:text-6xl font-bold font-sans">0</span>
+                <span class="text-xs uppercase tracking-widest mt-2">Secs</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Couple Image Section -->
+    <section class="py-20 max-w-4xl mx-auto px-6">
+        <div class="bg-white p-4 shadow-2xl rounded-sm transform -rotate-1 hover:rotate-0 transition-transform duration-500">
+            <div class="aspect-[3/4] bg-gray-100 flex items-center justify-center overflow-hidden relative">
+                <!-- Pointing to couple-photo.jpeg in the same directory -->
+                <img src="couple-photo.jpeg" alt="Simanta & Bidisha" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'text-center p-8 opacity-40\'><p class=\'font-sans italic\'>Photo not found. Please place \'couple-photo.jpeg\' in the same folder as this HTML file.</p></div>'">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+            </div>
+        </div>
+        <div class="text-center mt-12">
+            <h3 class="text-3xl maroon-text mb-4">Our Love Story</h3>
+            <p class="text-gray-600 leading-relaxed max-w-2xl mx-auto text-lg italic">
+                Two hearts becoming one, two souls bound by love. We invite you to witness our vows 
+                as we begin our journey as Mr. and Mrs. Guchhait.
+            </p>
+        </div>
+    </section>
+
+    <!-- Events Details -->
+    <section class="py-20 bg-white px-6">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+            <!-- Wedding Card -->
+            <div class="border gold-border p-8 rounded-lg relative overflow-hidden group hover:shadow-xl transition-shadow bg-[#FDFCF0]/30">
+                <h4 class="maroon-text text-2xl mb-6 flex items-center gap-2 uppercase tracking-wide font-sans font-bold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.51 4.05 3 5.5l7 7Z"/></svg>
+                    The Wedding
+                </h4>
+                <div class="space-y-4 text-gray-700 font-sans">
+                    <div class="flex gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <div>
+                            <p class="font-bold text-lg">Friday, March 13, 2026</p>
+                            <p class="text-sm opacity-75 italic">28th Falgun 1432</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <p>Evening onwards</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        <div>
+                            <p class="font-bold underline italic maroon-text">Bag Bhavan</p>
+                            <p>Nandanpur, Khanakul, Hooghly</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="mt-8 w-full py-3 maroon-bg text-white rounded font-sans tracking-widest hover:bg-[#a00000] transition-colors flex items-center justify-center gap-2 text-sm">
+                    VIEW ON MAPS
+                </button>
+            </div>
+
+            <!-- Reception Card -->
+            <div class="border gold-border p-8 rounded-lg relative overflow-hidden group hover:shadow-xl transition-shadow bg-[#FDFCF0]/30">
+                <h4 class="maroon-text text-2xl mb-6 flex items-center gap-2 uppercase tracking-wide font-sans font-bold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                    The Reception
+                </h4>
+                <div class="space-y-4 text-gray-700 font-sans">
+                    <div class="flex gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <div>
+                            <p class="font-bold text-lg">Saturday, March 14, 2026</p>
+                            <p class="text-sm opacity-75 italic">29th Falgun 1432</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <p>From 6:00 PM onwards</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#D4AF37]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        <div>
+                            <p class="font-bold underline italic maroon-text">Guchhait Bhavan</p>
+                            <p>Panchmora, Ghatal, West Medinipur</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="mt-8 w-full py-3 maroon-bg text-white rounded font-sans tracking-widest hover:bg-[#a00000] transition-colors flex items-center justify-center gap-2 text-sm">
+                    VIEW ON MAPS
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="py-20 text-center bg-[#FDFCF0]">
+        <h3 class="text-4xl maroon-text mb-4">Waiting to see you!</h3>
+        <p class="text-gray-600 mb-10 max-w-md mx-auto px-6 font-sans">
+            Your presence and blessings are our greatest gift. We look forward to celebrating this 
+            beautiful evening with our close friends and family.
+        </p>
+        
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4 px-6 font-sans">
+            <button class="w-full md:w-auto px-8 py-3 border-2 border-[#800000] maroon-text hover:bg-[#800000] hover:text-white transition-all rounded-full flex items-center justify-center gap-2">
+                RSVP NOW
+            </button>
+            <button class="w-full md:w-auto px-8 py-3 bg-[#D4AF37] text-white hover:bg-[#c09d30] transition-all rounded-full flex items-center justify-center gap-2">
+                SHARE INVITE
+            </button>
+        </div>
+
+        <div class="mt-24 pb-12 opacity-50 text-xs tracking-[0.2em] font-sans">
+            <p>© 2026 | SWARNENDU & BIDISHA</p>
+        </div>
+    </section>
+
+    <script>
+        // Countdown Timer Logic
+        const weddingDate = new Date('March 13, 2026 19:00:00').getTime();
+
+        const updateTimer = () => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.querySelector('h2').innerText = "Just Married!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days;
+            document.getElementById('hours').innerText = hours;
+            document.getElementById('mins').innerText = mins;
+            document.getElementById('secs').innerText = secs;
+        };
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
